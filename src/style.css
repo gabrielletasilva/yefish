@@ -1315,6 +1315,21 @@ footer {
 	position:relative;
 	top:1px;
 }
+
+  .myButton {
+    background-color: #bbe5b7;
+    border-radius: 42px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000;
+    font-family: "Courier New", monospace;
+    font-size: 20px;
+    padding: 10px 25px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+    transition: background-color 0.3s ease;
+  }
   
   .product {
     background-color: #f9f9f9;
