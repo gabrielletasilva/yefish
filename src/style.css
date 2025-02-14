@@ -277,7 +277,7 @@ h1 {
 
 .navigation > a, .navigation > a:visited, .navigation a:active {
     margin: 10px 20px;
-    font-size: 1.2rem;
+    font-size: 25px;
     color: var(--text-color);
 }
 
@@ -1299,7 +1299,7 @@ footer {
     cursor: pointer;
     color: #ffffff; /* Texto branco para melhor contraste */
     font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-size: 21px;
     padding: 12px 32px;
     text-decoration: none;
     font-weight: bold;
