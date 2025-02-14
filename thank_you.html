@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>yefish</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdn.snipcart.com/scripts/2/snipcart.js" id="snipcart" data-api-key="YOUR_API_KEY"></script>
+<link href="https://cdn.snipcart.com/themes/2.8/base/snipcart.min.css" type="text/css" rel="stylesheet" />
+    <!--Variables-->
+    
+    
+<script>
+        var theme = localStorage.getItem('theme') ? localStorage.getItem('theme') : "light";
+        document.documentElement.setAttribute('data-theme', theme);
+</script>
+
+</head>
+
+<body>
+<div id="loading">
+<div class="lds-dual-ring"></div>
+</div> 
+    <header>   
+        <span class="pointer" id="btn_open_menu" ><i class="bi bi-list"></i></span>
+        <nav class="navigation">
+            <span class="pointer" id="btn_close_menu"><i class="bi bi-x-lg"></i></span>
+            <form action="/search" method="get">
+                <input type="text" class="inputsearch" name="q" value="" placeholder="Search..." />
+            </form>
+            <a href="/" class="underline">Products</a>
+            <a href="/fish" class="underline">Fish</a>
+            <a href="/fish" class="underline">Food</a>
+            <a href="/fish" class="underline">Tank</a>
+            <a href="/fish" class="underline">Essentials</a>
+            <a href="cart.html"><button type="button" data-title-menu="Cart" class="controls_tumblr">
+                <i class="bi bi-cart"></i>
+              </button></a>
+        </nav>
+    </header>
+    <main>
+    <article id="cover" class="page-{CurrentPage}">
+            <h1>Thank You for Your Purchase!</h1>
+            <h3>Your order has been successfully processed. We appreciate your business.</h3>
+            <a href="yefish.html" class="myButton">Return to Homepage</a>
+    </article>
+    <article class="layout">
+    <section class="about">
+    <div id="page-pagination" class="gallery_pagination">
+                            
+                            
+    </div>
+        
+
+<div class="gallery">
+  <div class="product">
+    <img src="https://64.media.tumblr.com/905553894dcf3ee4e7e412397d10c053/b3d797e8adfb0e55-a8/s2048x3072/6499a0f2c281c88cf86cbf55a6ecb7ea8aa71aee.jpg" alt="Betta Fish">
+    <p><strong>Betta Platinum Halfmoon</strong></p>
+    <p>Total: $49.99</p>
+    <a href="purchase.html"> 
+  </div>
+  </div>
+</div>
+</div>
+    </main>
+    <script>
+        let cart = [];
+        
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+        
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+        
+        function updateCart() {
+            const cartContainer = document.getElementById('cart');
+            cartContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <p>${item.name} - $${item.price.toFixed(2)}</p>
+                        <button class="myButton" onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+            });
+            document.getElementById('total').innerText = total.toFixed(2);
+        }
+        
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+            } else {
+                alert("Purchase completed successfully!");
+                cart = [];
+                updateCart();
+            }
+        }
+    </script>
+</body>
+</html>
